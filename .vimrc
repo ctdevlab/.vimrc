@@ -1,43 +1,27 @@
 set nocompatible
 filetype off
 
-
-
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-let g:ycm_confirm_extra_conf = 0
-
+" let g:ycm_confirm_extra_conf = 0
 Plugin 'VundleVim/Vundle.vim'
-
-" For GitHub repos, you specify plugins using the
-" 'user/repository' format
-Plugin 'gmarik/vundle'
-
-" We could also add repositories with a ".git" extension
+Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree.git'
-
-" Tabular
+Plugin 'gmarik/vundle'
 Plugin 'godlygeek/tabular'
-
-" Autocomplete
 Plugin 'Valloric/YouCompleteMe'
-
-" Auto close quotes, parens, brackets
 Plugin 'raimondi/delimitmate'
-
-" Multiple selection like Sublime Text
 Plugin 'terryma/vim-multiple-cursors'
-
-" Check syntax
 Plugin 'scrooloose/syntastic'
-
-" Airline status bar
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'"
+Plugin 'ternjs/tern_for_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,10 +49,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " ======= END of recommended settings ======
-
-
-
-
+"
 " format
 set autoindent
 set backup
@@ -91,7 +72,7 @@ set hlsearch
 " set space to turn off highlighting
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-syntax enable 
+syntax enable
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
@@ -106,12 +87,11 @@ function! s:align()
   endif
 endfunction
 
-
-" support 256 colors in Lion terminal 
+" support 256 colors in Lion terminal
 let g:solarized_termcolors=256
 set t_Co=256
 
-" files 
+" files
 
 " ====== changed this due to Vundle configuration
 " filetype on
@@ -125,6 +105,11 @@ set modeline
 set ls=2
 set background=dark
 " colorscheme
-colorscheme solarized 
+colorscheme molokai
 " backup
-set backupdir=~/.vim/tmp
+" set backupdir=~/.vim/tmp
+
+set guifont=Monaco:h15
+
+" ========= Work Settings ========
+let g:NumberToggleTrigger="<F3>"
